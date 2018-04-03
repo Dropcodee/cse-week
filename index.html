@@ -1,0 +1,128 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>CSE '18</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="apple-touch-icon" href="apple-touch-icon.png">
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="stylesheet" type="text/css" href="_assets/main.css">
+	<link rel="stylesheet" type="text/css" href="_assets/flipclock.css">
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato:400,300,700,900,100">
+</head>
+
+<body>
+	<div class="preloader" id="preloader">
+		<svg style="" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+		    viewBox="0 0 257.7 223.2" xml:space="preserve">
+			<g stroke-width="6">
+				<polygon class="st0" points="69.6,214.2 10.4,111.6 69.6,9 188.1,9 247.3,111.6 188.1,214.2 " />
+				<line class="st0" x1="69.6" y1="9" x2="188.1" y2="214.2" />
+				<line class="st0" x1="69.6" y1="214.2" x2="188.1" y2="9" />
+				<line class="st0" x1="10.4" y1="111.6" x2="247.3" y2="111.6" />
+			</g>
+		</svg>
+	</div>
+	<div class="stage">
+		<div class="backgroundStack" id="backgroundStack">
+			<div class="backgroundStack-solidColor" id="backgroundStack-solidColor"></div>
+			<div class="backgroundStack-pic" id="backgroundStack-pic"></div>
+			<canvas class="backgroundStack-gradient" id="backgroundStack-gradient"></canvas>
+			<div class="backgroundStack-3d" id="backgroundStack-3d"></div>
+			<div class="backgroundStack-noise" id="backgroundStack-noise"></div>
+		</div>
+		<h3 class="stage-logo">CSE WEEK '18</h3>
+		<div class="stage-header">
+			<h1 style="color:#8F1D21">We r CSE</h1>
+			<h2 id="stage-header-tagline">
+				<span>WE R ORIGINAL</span>
+				<span>WE R INNOVATIVE </span>
+				<span>WE R TRAILBLAZING</span>
+				<span>WE R ULTRA-MODERN</span>
+				<span>WE R RARENEW-FASHIONED</span>
+				<span style="color: #8F1D21">WE ARE COMING SOON...</span>
+			</h2>
+		</div>
+		<div class="countdown">
+			<h1 class="countdown">Time to Go</h1>
+		</div>
+
+		<nav class="stage-nav" id="stage-nav">
+			<ul>
+				<li>
+					<a class="nice-link" href="index.html">
+						<div class="hover">
+							<span></span>
+							<span></span>
+							<span></span>
+							<span></span>
+						</div>
+						<span>Hidden Hyve</span>
+					</a>
+				</li>
+				<li>
+					<a class="nice-link" href="index.html">
+						<div class="hover">
+							<span></span>
+							<span></span>
+							<span></span>
+							<span></span>
+						</div>
+						<span>CSE-IT</span>
+					</a>
+				</li>
+			</ul>
+	</div>
+
+	</nav>
+	</div>
+
+	<script src="_assets/jquery-2.2.4.min.js"></script>
+	<script src="_assets/flipclock.min.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js"></script>
+
+	<script src="config.js"></script>
+	<script src="_assets/wiresphere.concat.min.js"></script>
+
+	<script type="text/javascript">
+		const countdown = document.querySelector(".countdown"); // Set the launch date // Date needs to be formatted Month day,yyyy
+		const launchDate = new Date("April 8, 2018 00:00:00").getTime(); // Update Every Second
+		const intvl = setInterval(() => { // Get todays date and time in miliseconds
+		const now = new Date().getTime();
+		// Distance from now to launch date in miliseconds
+			const distance = launchDate - now;
+
+			// Time calculations
+			const days = Math.floor(distance / (1000 * 60 * 60 *24));
+			const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+			const mins = Math.floor((distance %
+				(1000 * 60 * 60)) / (1000 * 60));
+			const seconds = Math.floor((distance % (1000 * 60)) / 1000); // Display the result
+			countdown.innerHTML=`
+<div>${days}
+	<span>Days</span>
+</div>
+<div>${hours}
+	<span>Hours</span>
+</div>
+<div>${mins}
+	<span>Minutes</span>
+</div>
+<div>${seconds}
+	<span>Seconds</span>
+</div>
+`;
+			// if date passed
+			if(distance < 0 ) { clearInterval(intvl); // Style and output text
+			countdown.style.color='#17a2b8' ;
+			countdown.innerHtml = 'Launched!';
+		}
+		}, 1000);
+	</script>
+</body>
+
+</html>
